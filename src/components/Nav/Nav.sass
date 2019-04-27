@@ -1,0 +1,45 @@
+@import '@/styles/mixins/typography.sass'
+    
+.Nav
+    position: relative
+    width: 300px
+    box-sizing: border-box
+
+    .inner
+        padding: 32px
+        position: fixed
+        box-sizing: border-box
+        display: flex
+        width: inherit
+        
+        .chapters
+            display: flex
+            flex-direction: column
+
+            .chapter
+                @include typography("normal")
+                display: flex
+                flex-direction: column
+                opacity: .5
+                transition: opacity .3s
+
+                &.active
+                    opacity: 1
+
+                .link
+                    text-decoration: none
+                    color: black
+
+                    .subchapters
+                        display: flex
+                        flex-direction: column
+                        margin-left: 16px
+
+                        .scrollactive-item
+                            text-decoration: none
+                            color: #000000
+                            opacity: .5
+                            transition: opacity .3s
+
+                            &.is-active
+                                opacity: 1

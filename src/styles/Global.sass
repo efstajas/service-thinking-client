@@ -1,0 +1,43 @@
+@import './mixins/typography'
+
+h1
+    @include typography(head)
+
+h2 
+    @include typography(sub)
+
+h3
+    @include typography(small)
+
+h4
+    @include typography(smallcaps)
+
+p
+    @include typography(normal)
+
+body
+    margin: 0
+    overflow-x: hidden
+
+#app
+    .nav
+        flex-shrink: 0
+        width: 300px
+
+    .view
+        width: 100%
+
+    @media (min-width: 768px)
+        display: flex
+        margin: 0
+        width: 100vw
+
+    @media (max-width: 767px)
+        display: flex
+        margin: 0
+        width: calc(100vw + 256px)
+        transform: translateX(-300px)
+        transition: transform .3s
+
+        &.swipedOut
+            transform: translateX(0)

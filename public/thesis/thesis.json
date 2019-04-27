@@ -1,0 +1,35 @@
+{
+    "name": "Service Thinking",
+    "author": "Jason Efstathiou",
+    "date": "May 2019",
+    "institute": "University of Applied Sciences Europe, Berlin",
+    "intro": {
+        "path": "intro.md"
+    },
+    "chapters": [
+        {
+            "name" : "Defining and modelling services",
+            "info": {
+                "title": "Defining and modelling services",
+                "subtitle": "A unified model for describing services",
+                "animation": {
+                    "path": "/thesis/animations/2.json"
+                }
+            },
+            "path": "/thesis/contents/1.md",
+            "slug": "defining-and-modelling-services"
+        },
+        {
+            "name" : "Atomic Functionality",
+            "info": {
+                "title": "Atomic Functionality",
+                "subtitle": "Breaking down performances into micro-actions",
+                "animation": {
+                    "path": "/thesis/animations/1.json"
+                }
+            },
+            "path": "/thesis/contents/2.md",
+            "slug": "atomic-functionality"
+        }
+    ]
+}

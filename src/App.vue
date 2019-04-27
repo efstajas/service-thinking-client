@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" :class="{swipedOut: swipedOut}">
+    <Nav @clickLink="swipedOut = false" class="nav"/>
+    <div class="view">
+      <Swap >
+        <router-view :key="$route.params.slug" />
+      </Swap>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Nav from '@/components/Nav'
+import Swap from '@/components/Swap'
+
+import getThesis from '@/util/getThesis'
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
-  }
+    Nav,
+    Swap
+  },
+  data() {
+    return {
+      swipedOut: false
+    }
+  },
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
+<style lang="sass" src="@/styles/Global.sass">
