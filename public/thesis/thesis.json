@@ -1,10 +1,11 @@
 {
     "name": "Service Thinking",
-    "author": "Jason Efstathiou",
+    "subtitle": "Designing digital experiences with atomic functionality",
+    "author": "Georgios Jason Efstathiou",
     "date": "May 2019",
     "institute": "University of Applied Sciences Europe, Berlin",
     "intro": {
-        "path": "intro.md"
+        "path": "/thesis/contents/0.md"
     },
     "chapters": [
         {

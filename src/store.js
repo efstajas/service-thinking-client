@@ -7,7 +7,9 @@ export default new Vuex.Store({
   state: {
     thesis: null,
     chapters: null,
-    currentSubchapters: null
+    currentSubchapters: null,
+    refs: null,
+    referenceOpen: null
   },
   mutations: {
     writeThesis(state, data) {
@@ -19,6 +21,12 @@ export default new Vuex.Store({
     },
     clearSubchapters(state) {
       state.currentSubchapters = null
+    },
+    writeRefs(state, data) {
+      state.refs = data
+    },
+    writeRefStatus(state, data) {
+      state.referenceOpen = data.open
     }
   },
   actions: {
@@ -34,6 +42,16 @@ export default new Vuex.Store({
     },
     clearSubchapters(context) {
       context.commit('clearSubchapters')
+    },
+    setRefs(context,data) {
+      context.commit('writeRefs', {
+        ...data
+      })
+    },
+    setRefStatus(context, data) {
+      context.commit('writeRefStatus', {
+        open: data.open
+      })
     }
   }
 })

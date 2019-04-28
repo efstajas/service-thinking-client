@@ -1,0 +1,29 @@
+@import '@/styles/mixins/typography.sass'
+    
+.Cover
+    padding: 32px
+    max-width: 700px
+    .info
+        min-height: 90vh
+        margin-bottom: 128px
+        display: flex
+        box-sizing: border-box
+        flex-direction: column
+        .animation
+            margin-bottom: 64px
+            flex-grow: 1
+        .title
+            @include typography("huge")
+            margin-bottom: 32px
+        .subtitle
+            @include typography("sub")
+            margin-bottom: 64px
+            max-width: 400px
+        .author
+            @include typography("sub")
+            margin-bottom: 64px
+        .date
+            @include typography("small")
+            margin-bottom: 8px
+        .institute
+            @include typography("small")

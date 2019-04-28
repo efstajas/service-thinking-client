@@ -1,7 +1,7 @@
 <template>
     <div class="SvgMorph">
-        <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path v-for="(path, index) in steps.from" :key="index" stroke="#FFFFFF" stroke-alignment="center" :d="path.d" :id="`path-${index}`"/>
+        <svg :width="width" :viewBox="`0 0 ${viewBoxWidth} 128`" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path v-for="(path, index) in steps.from" :key="index" :stroke="color" stroke-alignment="center" :d="path.d" :id="`path-${index}`"/>
         </svg>
     </div>
 </template>
@@ -15,6 +15,18 @@ export default {
         steps: {
             type: Object,
             required: true
+        },
+        color: {
+            type: String,
+            default: '#FFFFFF'
+        },
+        width: {
+            type: Number,
+            default: 300
+        },
+        viewBoxWidth: {
+            type: Number,
+            default: 128
         }
     },
     data() {

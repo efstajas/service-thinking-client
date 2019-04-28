@@ -1,0 +1,22 @@
+{
+    "@ref1": {
+        "index": 1,
+        "meta": {
+            "title": "reference title",
+            "author": "refernece author",
+            "published": "Published here",
+            "pages": "2000-2001"
+        }
+    },
+    "@ref2": {
+        "index": 2,
+        "meta": {
+            "title": "reference title 2",
+            "date": "24.05.1996",
+            "retrieved": "16.04.2019",
+            "author": "refernece author",
+            "published": "Published here",
+            "pages": "2000-2001"
+        }
+    }
+}

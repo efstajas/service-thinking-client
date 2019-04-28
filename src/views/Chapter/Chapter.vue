@@ -1,16 +1,23 @@
 <template>
     <div class="Chapter">
-        <div class="info">
-            <SvgMorph class="animation" v-if="animation" :steps="animation"/>
-            <span class="title">{{ title }}</span>
-            <span class="subtitle">{{ subtitle }}</span>
+        <div class="content">
+            <div class="info">
+                <SvgMorph class="animation" v-if="animation" :steps="animation"/>
+                <span class="title">{{ title }}</span>
+                <span class="subtitle">{{ subtitle }}</span>
+            </div>
+            <div class="text">
+                <MdText @rendered="updateSubchapters" v-if="chapter" :source="chapter" />
+            </div>
+            <router-link :to="nextChapter.slug" v-if="nextChapter" class="next">
+                <img class="arrow" src="/arrowDown.svg" />
+                <div class="information">
+                    <span class="continue">Continue reading</span>
+                    <span class="title">{{ nextChapter.name }}</span>
+                </div>
+            </router-link>
         </div>
-        <div class="text">
-            <vue-markdown toc @rendered="updateSubchapters" :toc-anchor-link="false" v-if="chapter" :source="chapter" />
-        </div>
-        <div v-if="nextSlug" class="next">
-            <span  class="title"></span>
-            <router-link :to="nextSlug" >Read on</router-link>
+        <div id="annotations" class="annotations">
         </div>
     </div>
 </template>
@@ -22,6 +29,7 @@ import getAnimation from '@/util/getAnimation'
 import { SvgMorph } from '@/components/Animations'
 import VueMarkdown from 'vue-markdown'
 import store from '@/store.js'
+import MdText from '@/components/MdText'
 
 export default {
     name: 'Chapter',
@@ -38,8 +46,8 @@ export default {
         chapterIndex() {
             return this.$store.state.thesis.chapters.map(function(e) { return e.slug; }).indexOf(this.$route.params.slug)
         },
-        nextSlug() {
-            return (this.$store.state.thesis.chapters[this.chapterIndex + 1]) ? this.$store.state.thesis.chapters[this.chapterIndex + 1].slug : null
+        nextChapter() {
+            return (this.$store.state.thesis.chapters[this.chapterIndex + 1]) ? this.$store.state.thesis.chapters[this.chapterIndex + 1] : null
         }
     },
     mounted() {
@@ -86,11 +94,12 @@ export default {
             this.$store.dispatch('setSubchapters', {
                 ...subchapters
             })
-        }
+        },
     },
     components: {
         VueMarkdown,
-        SvgMorph
+        SvgMorph,
+        MdText
     },
     destroyed() {
         this.$store.dispatch('clearSubchapters')
