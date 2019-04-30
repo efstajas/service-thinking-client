@@ -1,10 +1,12 @@
 @import '@/styles/mixins/typography.sass'
     
 .Cover
-    padding: 32px
+    padding: 32px 48px
     max-width: 700px
+    @media (max-width: 768px)
+        width: calc(100vw - 48px)
     .info
-        min-height: 90vh
+        min-height: 93vh
         margin-bottom: 128px
         display: flex
         box-sizing: border-box
@@ -13,12 +15,12 @@
             margin-bottom: 64px
             flex-grow: 1
         .title
-            @include typography("huge")
+            @include typography("sub")
             margin-bottom: 32px
         .subtitle
             @include typography("sub")
             margin-bottom: 64px
-            max-width: 400px
+            max-width: 480px
         .author
             @include typography("sub")
             margin-bottom: 64px
@@ -27,3 +29,21 @@
             margin-bottom: 8px
         .institute
             @include typography("small")
+    .next
+        margin-top: 64px
+        opacity: .6
+        text-decoration: none
+        color: #000
+        display: flex
+        transition: opacity .3s
+        .arrow
+            margin-right: 16px
+        .information
+            display: flex
+            flex-direction: column
+            .continue
+                @include typography("normal")
+            .title
+                @include typography("small")
+        &:hover
+            opacity: 1

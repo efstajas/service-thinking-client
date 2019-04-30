@@ -9,6 +9,13 @@
             <span class="institute">{{ info.institute }}</span>
         </div>
         <MdText v-if="intro" :source="intro" />
+        <router-link :to="`/chapter/${firstChapter.slug}`" v-if="firstChapter" class="next">
+            <img class="arrow" src="/arrowDown.svg" />
+            <div class="information">
+                <span class="continue">Continue reading</span>
+                <span class="title">{{ firstChapter.name }}</span>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -32,6 +39,9 @@ export default {
         info() {
             let { name, subtitle, date, author, institute } = this.$store.state.thesis
             return { name, subtitle, date, author, institute }
+        },
+        firstChapter() {
+            return this.$store.state.thesis.chapters[0]
         }
     },
     mounted() {

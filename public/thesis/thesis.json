@@ -31,6 +31,30 @@
             },
             "path": "/thesis/contents/2.md",
             "slug": "atomic-functionality"
+        },
+        {
+            "name" : "The Service Baseline",
+            "info": {
+                "title": "The Service Baseline",
+                "subtitle": "Shaping service clusters through user-driven design",
+                "animation": {
+                    "path": "/thesis/animations/4.json"
+                }
+            },
+            "path": "/thesis/contents/3.md",
+            "slug": "service-baseline"
+        },
+        {
+            "name" : "Service Landscapes",
+            "info": {
+                "title": "Service Landscapes",
+                "subtitle": "Expressing strategy through service landscaping",
+                "animation": {
+                    "path": "/thesis/animations/5.json"
+                }
+            },
+            "path": "/thesis/contents/4.md",
+            "slug": "service-landscapes"
         }
     ]
 }

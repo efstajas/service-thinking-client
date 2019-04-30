@@ -1,16 +1,26 @@
+@import '@/styles/mixins/typography.sass'
+    
 .Citation
     display: inline-block
-    .index 
+    user-select: none
+    .textIndex
+        @include typography("normal")
         font-feature-settings: 'sups' 1
         cursor: pointer
 
     .citationInfo
+        @include typography("tiny")
+        width: 300px
         position: absolute
         opacity: .6
         cursor: pointer
 
+        .index
+            font-feature-settings: 'sups' 1
+
     .moreInfo
-        width: 500px
+        @include typography("tiny")
+        width: 300px
         cursor: pointer
         position: absolute
         z-index: 50

@@ -3,7 +3,7 @@
         <div @click="handleClick" :style="{transform: `translateX(${offset}px)`}" ref="info" class="citationInfo">
             <span class="index">{{ ref.index }}</span><span class="title">{{ ref.meta.title }}</span>
         </div>
-        <div @click="handleClick" v-if="$store.state.referenceOpen === ref.index" :style="{transform: `translateX(${offset}px)`}" ref="moreInfo" class="moreInfo">
+        <div @click="handleClick" v-if="$store.state.referenceOpen === tag" :style="{transform: `translateX(${offset}px)`}" ref="moreInfo" class="moreInfo">
             <div class="keyValuePair">
                 <span class="index">{{ ref.index }}</span>
                 <span class="value">{{ ref.title }}</span>
@@ -13,7 +13,7 @@
                 <span class="value">{{ meta }}</span>
             </div>
         </div>
-        <span @click="handleClick" class="index">
+        <span @click="handleClick" class="textIndex">
             {{ ref.index }}
         </span>
     </div>
@@ -30,7 +30,7 @@ export default {
     },
     data() {
         return {
-            position: 1200,
+            position: 1250,
             myPosition: null,
             offset: null,
         }
@@ -50,13 +50,13 @@ export default {
     },
     methods: {
         handleClick() {
-            if (this.$store.state.referenceOpen === this.ref.index) {
+            if (this.$store.state.referenceOpen === this.tag) {
                 this.$store.dispatch('setRefStatus', {
                     open: null
                 })
             } else {
                 this.$store.dispatch('setRefStatus', {
-                    open: this.ref.index
+                    open: this.tag
                 })
             }
         }

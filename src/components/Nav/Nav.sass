@@ -15,17 +15,18 @@
         width: inherit
 
         .intro
-            margin-bottom: 64px
+            margin-bottom: 16px
             display: flex
             flex-direction: column
             .title
-                @include typography("small")
-                margin-bottom: 64px
+                @include typography("tiny")
+                margin-bottom: 32px
                 text-decoration: none
                 color: #000000
             .border
                 height: 4px
                 width: 100%
+                opacity: 0
                 background-color: rgba(0,0,0,.3)
                 width: calc(100% - 32px)
                 border-radius: 2px
@@ -35,7 +36,7 @@
             flex-direction: column
 
             .chapter
-                @include typography("normal")
+                @include typography("tiny")
                 display: flex
                 flex-direction: column
                 opacity: .5
@@ -56,13 +57,13 @@
                         overflow: hidden
                         display: flex
                         flex-direction: column
-                        margin: 8px 0 8px 16px
 
                         .scrollactive-item
                             text-decoration: none
                             color: #000000
                             opacity: .5
-                            margin-bottom: 8px
+                            margin-top: 14px
+                            margin-left: 16px
                             transition: opacity .3s
 
                             &:last-child
@@ -74,17 +75,25 @@
         .sources
             margin-top: 32px
             a
-                @include typography("normal")
+                @include typography("tiny")
                 font-style: italic
                 text-decoration: none
                 color: #000000
 
 .fadeHeight-enter-active,
 .fadeHeight-leave-active
-  transition: all .3s;
-  max-height: 230px;
+  transition: all .5s;
+  max-height: 300px;
 
 .fadeHeight-enter,
 .fadeHeight-leave-to
+  opacity: 0
+  max-height: 0px
+
+.fade-enter-active,
+.fade-leave-active
+  transition: all .4s;
+
+.fade-enter,
+.fade-leave-to
   opacity: 0;
-  max-height: 0px;

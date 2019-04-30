@@ -1,11 +1,13 @@
 @import '@/styles/mixins/typography.sass'
     
 .Chapter
-    padding: 32px
+    padding: 32px 48px
     display: flex
 
     .content
         max-width: 700px
+        @media (max-width: 768px)
+            width: calc(100vw - 48px)
         .info
             @include typography("head") 
             background-color: black
@@ -13,7 +15,7 @@
             margin-left: -16px
             margin-top: -16px
             margin-right: -16px
-            padding: 32px 16px
+            padding: 16px 16px
             display: flex
             flex-direction: column
             justify-content: space-between

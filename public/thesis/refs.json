@@ -1,22 +1,190 @@
 {
-    "@ref1": {
+    "@serviceDefinition1": {
         "index": 1,
         "meta": {
-            "title": "reference title",
-            "author": "refernece author",
-            "published": "Published here",
-            "pages": "2000-2001"
+            "title": "Thinking in Services",
+            "author": "M. Iqbal",
+            "published": "BIS Publishers",
+            "date": "2018",
+            "pages": "11"
         }
     },
-    "@ref2": {
+    "@serviceDefinition2": {
         "index": 2,
         "meta": {
-            "title": "reference title 2",
-            "date": "24.05.1996",
+            "title": "Operations Management – Characteristics of Services",
+            "author": "J. Swearingen",
+            "published": "University of Illionois – Lectures 2000",
+            "date": "2000",
+            "pages": "45-50"
+        }
+    },
+    "@serviceDefinition3": {
+        "index": 3,
+        "meta": {
+            "title": "Operations Management – Characteristics of Services",
+            "author": "J. Swearingen",
+            "published": "University of Illionois – Lectures 2000",
+            "date": "2000",
+            "pages": "51"
+        }
+    },
+    "@serviceDefinition4": {
+        "index": 4,
+        "meta": {
+            "title": "An Investigation Into Four Characteristics of Services",
+            "author": "Wolak, Kalafatis, Harris",
+            "published": "Journal of Empirical Generalisations in Marketing Science, Volume 3",
+            "date": "1998",
+            "pages": "25-27"
+        }
+    },
+    "@serviceDefinition5": {
+        "index": 5,
+        "meta": {
+            "title": "An Investigation Into Four Characteristics of Services",
+            "author": "Wolak, Kalafatis, Harris",
+            "published": "Journal of Empirical Generalisations in Marketing Science, Volume 3",
+            "date": "1998",
+            "pages": "27"
+        }
+    },
+    "@serviceDefinition6": {
+        "index": 6,
+        "meta": {
+            "title": "Operations Management – Characteristics of Services",
+            "author": "J. Swearingen",
+            "published": "University of Illionois – Lectures 2000",
+            "date": "2000",
+            "pages": "40-42"
+        }
+    },
+    "@serviceDefinition7": {
+        "index": 7,
+        "meta": {
+            "title": "Operations Management – Characteristics of Services",
+            "author": "J. Swearingen",
+            "published": "University of Illionois – Lectures 2000",
+            "date": "2000",
+            "pages": "38-40"
+        }
+    },
+    "@serviceDefinition8": {
+        "index": 8,
+        "meta": {
+            "title": "Operations Management – Characteristics of Services",
+            "author": "J. Swearingen",
+            "published": "University of Illionois – Lectures 2000",
+            "date": "2000",
+            "pages": "40-42"
+        }
+    },
+    "@boldking": {
+        "index": 9,
+        "meta": {
+            "title": "Boldking Homepage",
+            "author": "BOLD Online BV",
+            "url": "boldking.com",
+            "retrieved": "08.10.2019"
+        }
+    },
+    "@moreLucrative": {
+        "index": 10,
+        "meta": {
+            "title": "Demand-side integration for customer choice through variable service subscription",
+            "author": "Chuang, Gellings",
+            "published": "IEEE",
+            "date": "2009",
+            "pages": "67"
+        }
+    },
+    "@googlePrivacy": {
+        "index": 11,
+        "meta": {
+            "title": "Google Privacy Policy",
+            "author": "Google LLC",
+            "url": "policies.google.com/privacy",
+            "retrieved": "09.04.2019"
+        }
+    },
+    "@googleProfit": {
+        "index": 12,
+        "meta": {
+            "title": "Alphabet Inc. Investor Report",
+            "author": "Alphabet Inc.",
+            "url": "abc.xyz/investor/",
+            "retrieved": "09.04.2019"
+        }
+    },
+    "@performance": {
+        "index": 13,
+        "meta": {
+            "title": "Thinking in Services",
+            "author": "M. Iqbal",
+            "published": "BIS Publishers",
+            "date": "2018",
+            "pages": "43"
+        }
+    },
+    "@amazonDeliveryTime": {
+        "index": 14,
+        "meta": {
+            "title": "Amazon’s Best of Prime 2017 Reveals the Year’s Biggest Trends —More than 5 Billion Items Shipped with Prime in 2017",
+            "author": "Amazon Inc / BusinessWirse",
+            "url": "businesswire.com/news/home/20180102005390/en/",
+            "retrieved": "09.04.2019"
+        }
+    },
+    "@userExperienceDefinition": {
+        "index": 0,
+        "meta": {
+            "title": "Human-centered design for interactive systems",
+            "date": "2009",
             "retrieved": "16.04.2019",
-            "author": "refernece author",
-            "published": "Published here",
-            "pages": "2000-2001"
+            "author": "International Organization for Standardization ",
+            "published": "Ergonomics of human system interaction",
+            "pages": "ISO F±DIS 9241-210:2009."
+        }
+    },
+    "@userInterfaceDefinition": {
+        "index": 0,
+        "meta": {
+            "title": "User Interface",
+            "retrieved": "19.04.2019",
+            "author": "Oxford University Press",
+            "url": "en.oxforddictionaries.com/definition/user_interface"
+        }
+    },
+    "@smartphoneUsage": {
+        "index": 0,
+        "meta": {
+            "title": "Mobile phone internet user penetration worldwide from 2014 to 2019",
+            "retrieved": "19.04.2019",
+            "author": "Statista",
+            "url": "statista.com/statistics/284202/mobile-phone-internet-user-penetration-worldwide/"
+        }
+    },
+    "@pmf": {
+        "index": 0,
+        "meta": {
+            "title": "EE204: Product/Market Fit",
+            "retrieved": "22.04.2019",
+            "author": "Marc Andreesen",
+            "url": "web.stanford.edu/class/ee204/ProductMarketFit.html"
+        }
+    },
+    "@overheadLoss": {
+        "index": 0,
+        "meta": {
+            "title": "For the sake of simplicity, the Set of Needs and Outcome are set to a constant size. At a later stage, we will look into quantifying their size further." 
+        }
+    },
+    "@brandonInterview": {
+        "index": 0,
+        "meta": {
+            "title": "Interview with B. Oxendine",
+            "date": "10.04.2019",
+            "from": "Oxendine, B; Personal interview"
         }
     }
 }

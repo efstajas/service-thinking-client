@@ -1,3 +1,5 @@
+@import '@/styles/mixins/typography.sass'
+
 .MdText
     .md
         display: none
@@ -21,4 +23,23 @@
                 max-width: calc(100vw - 400px)
             @media (max-width: 767px)
                 max-width: calc(100vw - 32px)
-        code
+        blockquote
+            margin-left: 24px
+            font-style: italic
+            &:before
+                content: '->'
+                font-style: normal
+                position: absolute
+                margin-left: -24px
+                @include typography("normal")
+        ul
+            @include typography("normal")
+            margin-bottom: 32px
+            padding-left: 0px
+        pre
+            padding: 16px
+            margin-left: -16px
+            margin-bottom: 32px
+            line-height: 24px
+            font-size: 18px
+            font-weight: bold
