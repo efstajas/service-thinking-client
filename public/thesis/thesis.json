@@ -55,6 +55,14 @@
             },
             "path": "/thesis/contents/4.md",
             "slug": "service-landscapes"
+        },
+        {
+            "name" : "Conclusion",
+            "info": {
+                "title": "Conclusion"
+            },
+            "path": "/thesis/contents/5.md",
+            "slug": "conclusion"
         }
     ]
 }

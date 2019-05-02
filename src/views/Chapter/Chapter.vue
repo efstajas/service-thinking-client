@@ -62,14 +62,25 @@ export default {
         })
 
         let chapterObject = getChapterObjectBySlug(store.state.thesis, this.$route.params.slug)
-        let animUrl = chapterObject.info.animation.path
-        getAnimation(animUrl).then((res) => {
+
+        if (chapterObject.info.animation) {
+            let animUrl = chapterObject.info.animation.path
+            getAnimation(animUrl).then((res) => {
+                this.setMetadata({
+                    animation: res.data,
+                    title: chapterObject.info.title,
+                    subtitle: chapterObject.info.subtitle,
+                })
+            })
+        } else {
             this.setMetadata({
-                animation: res.data,
+                animation: null,
                 title: chapterObject.info.title,
                 subtitle: chapterObject.info.subtitle,
             })
-        })
+        }
+
+        
     },
     methods: {
         setMetadata(data) {

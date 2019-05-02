@@ -3,7 +3,9 @@ import Router from 'vue-router'
 import Cover from './views/Cover'
 import store from './store'
 import getThesis from '@/util/getThesis'
-import getRefs from '@/util/getRefs'
+import getBib from '@/util/getBib'
+import {parseBibFile} from "bibtex"
+import { parse } from 'ipaddr.js';
 
 Vue.use(Router)
 
@@ -34,13 +36,23 @@ router.beforeEach((to, from, next) => {
     next()
   } else {
     getThesis().then((thesis) => {
-      getRefs().then((refs) => {
-        store.dispatch('setThesis', {
-          ...thesis.data
-        }),
-        store.dispatch('setRefs', {
-          ...refs.data
+      store.dispatch('setThesis', {
+        ...thesis.data
+      })
+      getBib().then((bib) => {
+        let refs = {}
+        let parsed = parseBibFile(bib.data)
+        Object.keys(parsed.entries$).forEach((entryName, i) => {
+          let toPush = {
+            index: i+1,
+            meta: {}
+          }
+          Object.keys(parsed.entries$[entryName].fields).forEach((fieldName) => {
+            toPush.meta[fieldName] = parsed.entries$[entryName].fields[fieldName].data.join('')
+          })
+          refs[`@${entryName}`] = toPush
         })
+        store.dispatch('setRefs', refs)
         next()
       })
     })

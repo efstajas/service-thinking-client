@@ -135,6 +135,21 @@
             "retrieved": "09.04.2019"
         }
     },
+    "@googleDocs": {
+        "index": 15,
+        "meta": {
+            "title": "Google Cloud — Docs",
+            "author": "Google LLC",
+            "url": "gsuite.google.com/products/docs/",
+            "retrieved": "09.04.2019"
+        }
+    },
+    "@instantSynchronization": {
+        "index": 16,
+        "meta": {
+            "title": ""
+        }
+    },
     "@userExperienceDefinition": {
         "index": 0,
         "meta": {

@@ -18,7 +18,7 @@
                         </router-link>
                     </div>
                 </div>
-                <div class="sources">
+                <div class="sources" :class="{active: $route.path === '/sources'}">
                     <router-link to="/sources">Source Directory</router-link>
                 </div>
             </div>

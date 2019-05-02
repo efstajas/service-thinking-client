@@ -1,14 +1,14 @@
 <template>
     <div v-if="ref" class="Citation">
-        <div @click="handleClick" :style="{transform: `translateX(${offset}px)`}" ref="info" class="citationInfo">
+        <div @click="handleClick" :style="{transform: `translate(${offset}px, ${yOffset}px)`}" ref="info" class="citationInfo">
             <span class="index">{{ ref.index }}</span><span class="title">{{ ref.meta.title }}</span>
         </div>
-        <div @click="handleClick" v-if="$store.state.referenceOpen === tag" :style="{transform: `translateX(${offset}px)`}" ref="moreInfo" class="moreInfo">
+        <div @click="handleClick" v-if="$store.state.referenceOpen === tag" :style="{transform: `translate(${offset}px, ${yOffset}px)`}" ref="moreInfo" class="moreInfo">
             <div class="keyValuePair">
                 <span class="index">{{ ref.index }}</span>
                 <span class="value">{{ ref.title }}</span>
             </div>
-            <div v-for="(meta, name) in ref.meta" :key="`${ref.index}-${meta.title}`" class="keyValuePair">
+            <div v-for="(meta, name) in ref.meta" :key="`${ref.index}-${name}`" class="keyValuePair">
                 <span class="title">{{ name }}</span>
                 <span class="value">{{ meta }}</span>
             </div>
@@ -32,21 +32,45 @@ export default {
         return {
             position: 1250,
             myPosition: null,
-            offset: null,
+            offset: 0,
+            yOffset: 0
         }
     },
     computed: {
         sanitizedTag() {
-            return this.tag.replace('[', '').replace(']','')
+            return this.tag.replace('[', '').replace(']','').toLowerCase()
         },
         ref() {
             return this.$store.state.refs[this.sanitizedTag]
         }
     },
     mounted() {
-        this.myPosition = this.$refs.info.getBoundingClientRect().left
-        this.offset = this.position - this.myPosition
-        console.log(this.position)
+        this.$nextTick(() => {
+            if (this.$refs.info) {
+                let y1 = this.$refs.info.getBoundingClientRect().top
+                let y2 = this.$refs.info.getBoundingClientRect().bottom
+                let yOffset = 0
+
+                this.$store.state.refCoordinates.forEach((value) => {
+                    if (value.y1 === y1) {          
+                        yOffset = yOffset + value.height
+                        y1 = this.$refs.info.getBoundingClientRect().top,
+                        y2 = this.$refs.info.getBoundingClientRect().bottom
+                    }
+                })
+
+                this.yOffset = yOffset
+
+                this.$store.dispatch('registerRefCoordinates', {
+                    y1: y1,
+                    y2: y2,
+                    height: this.$refs.info.getBoundingClientRect().height
+                })
+
+                this.myPosition = this.$refs.info.getBoundingClientRect().left
+                this.offset = this.position - this.myPosition
+            }
+        })
     },
     methods: {
         handleClick() {
@@ -60,7 +84,7 @@ export default {
                 })
             }
         }
-    },
+    }
 }
 </script>
 

@@ -9,7 +9,8 @@ export default new Vuex.Store({
     chapters: null,
     currentSubchapters: null,
     refs: null,
-    referenceOpen: null
+    referenceOpen: null,
+    refCoordinates: []
   },
   mutations: {
     writeThesis(state, data) {
@@ -27,6 +28,12 @@ export default new Vuex.Store({
     },
     writeRefStatus(state, data) {
       state.referenceOpen = data.open
+    },
+    addRefCoordinates(state, data) {
+      state.refCoordinates.push(data)
+    },
+    clearRefCoordinates(state) {
+      state.refCoordinates = []
     }
   },
   actions: {
@@ -52,6 +59,16 @@ export default new Vuex.Store({
       context.commit('writeRefStatus', {
         open: data.open
       })
+    },
+    registerRefCoordinates(context, data) {
+      context.commit('addRefCoordinates', {
+        y1: data.y1,
+        y2: data.y2,
+        height: data.height
+      })
+    },
+    clearRefCoordinates(context) {
+      context.commit('clearRefCoordinates')
     }
   }
 })
