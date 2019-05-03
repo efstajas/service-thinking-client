@@ -71,9 +71,19 @@
 
                             &.is-active
                                 opacity: 1
-
-        .sources
+        .appendix
             margin-top: 32px
+            opacity: .5
+            transition: opacity .3s
+            a
+                @include typography("tiny")
+                font-style: italic
+                text-decoration: none
+                color: #000000
+            &.active
+                opacity: 1
+        .sources
+            margin-top: 16px
             opacity: .5
             transition: opacity .3s
             a

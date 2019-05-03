@@ -7,6 +7,9 @@
     "intro": {
         "path": "/thesis/contents/0.md"
     },
+    "appendix": {
+        "path": "/thesis/contents/appendix.md"
+    },
     "chapters": [
         {
             "name" : "Defining and modelling services",

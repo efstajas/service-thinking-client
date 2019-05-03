@@ -18,6 +18,9 @@
                         </router-link>
                     </div>
                 </div>
+                <div class="appendix" :class="{active: $route.path === '/appendix'}">
+                    <router-link to="/appendix">Appendix</router-link>
+                </div>
                 <div class="sources" :class="{active: $route.path === '/sources'}">
                     <router-link to="/sources">Source Directory</router-link>
                 </div>

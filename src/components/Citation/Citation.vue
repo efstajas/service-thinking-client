@@ -46,6 +46,26 @@ export default {
     },
     mounted() {
         this.$nextTick(() => {
+            this.calculateMetrics()
+            window.addEventListener('resize', () => {
+                this.calculateMetrics()
+            });
+        })
+    },
+    methods: {
+        handleClick() {
+            if (this.$store.state.referenceOpen === this.tag) {
+                this.$store.dispatch('setRefStatus', {
+                    open: null
+                })
+            } else {
+                this.$store.dispatch('setRefStatus', {
+                    open: this.tag
+                })
+            }
+        },
+        calculateMetrics() {
+            console.log("calculate metrics")
             if (this.$refs.info) {
                 let y1 = this.$refs.info.getBoundingClientRect().top
                 let y2 = this.$refs.info.getBoundingClientRect().bottom
@@ -70,21 +90,8 @@ export default {
                 this.myPosition = this.$refs.info.getBoundingClientRect().left
                 this.offset = this.position - this.myPosition
             }
-        })
-    },
-    methods: {
-        handleClick() {
-            if (this.$store.state.referenceOpen === this.tag) {
-                this.$store.dispatch('setRefStatus', {
-                    open: null
-                })
-            } else {
-                this.$store.dispatch('setRefStatus', {
-                    open: this.tag
-                })
-            }
         }
-    }
+    },
 }
 </script>
 
