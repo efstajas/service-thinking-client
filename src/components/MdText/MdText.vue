@@ -27,7 +27,8 @@ export default {
     },
     data() {
         return {
-            renderedText: null
+            renderedText: null,
+            citationNumber: 0,
         }
     },
     methods: {
@@ -35,11 +36,12 @@ export default {
             this.renderedText = `<div>${this.constructRefs(html)}</div>`
         },
         constructRefs(html) {
-            let refs = (html.match(/\[.+?\]/g)) ? html.match(/\[.+?\]/g).map(function(str) {    // Iterate matches
-                return str.slice(1,-1)
-            }) : null
-
-            return html.replace(/ *\[[^\]]*]/g, '<Citation tag="$&"/>');
+            /*return html.replace(/ *\[[^\]]*]/g, (match) => {
+                let text = `<Citation :pageIndex="${this.citationNumber}" tag="${match}"/>`
+                this.citationNumber++
+                return text
+            })*/
+            return html.replace(/ *\[[^\]]*]/g, `<Citation tag="$&"/>`)
         }
     },
     components: {

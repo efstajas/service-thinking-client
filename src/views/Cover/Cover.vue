@@ -1,7 +1,7 @@
 <template>
     <div class="Cover">
         <div class="info">
-            <SvgMorph :width="900" :viewBoxWidth="383" color="#000" class="animation" v-if="animation" :steps="animation"/>
+            <SvgMorph width="100%" :viewBoxWidth="383" color="#000" class="animation" v-if="animation" :steps="animation"/>
             <span class="title">{{ info.name }}</span>
             <span class="subtitle">{{ info.subtitle }}</span>
             <span class="author">{{ info.author }}</span>

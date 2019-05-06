@@ -3,6 +3,8 @@
 .Citation
     display: inline-block
     user-select: none
+    @media (max-width: 1194px)
+        display: none
     .textIndex
         @include typography("normal")
         font-feature-settings: 'sups' 1
@@ -10,7 +12,7 @@
 
     .citationInfo
         @include typography("tiny")
-        width: 300px
+        width: 250px
         position: absolute
         opacity: .6
         cursor: pointer
@@ -20,7 +22,7 @@
 
     .moreInfo
         @include typography("tiny")
-        width: 300px
+        width: 250px
         cursor: pointer
         position: absolute
         z-index: 50

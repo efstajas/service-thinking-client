@@ -21,9 +21,11 @@ export default {
     methods: {
         getAppendix() {
             getAppendix(this.$store.state.thesis).then((appendix) => {
-                console.log(appendix.data)
                 this.appendix = appendix.data
             })
+        },
+        mounted() {
+            window.scrollTo(0,0)
         }
     },
     components: {

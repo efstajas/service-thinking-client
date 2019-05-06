@@ -2,9 +2,15 @@
     <div class="Chapter">
         <div class="content">
             <div class="info">
-                <SvgMorph class="animation" v-if="animation" :steps="animation"/>
-                <span class="title">{{ title }}</span>
+                <Fade>
+                    <SvgMorph class="animation" v-if="animation" :steps="animation"/>
+                </Fade>
+                <Fade>
+                    <span class="title">{{ title }}</span>
+                </Fade>
+                <Fade>
                 <span class="subtitle">{{ subtitle }}</span>
+                </Fade>
             </div>
             <div class="text">
                 <MdText @rendered="updateSubchapters" v-if="chapter" :source="chapter" />
@@ -17,8 +23,6 @@
                 </div>
             </router-link>
         </div>
-        <div id="annotations" class="annotations">
-        </div>
     </div>
 </template>
 
@@ -27,8 +31,8 @@ import getChapterObjectBySlug from '@/util/getChapterObjectBySlug.js'
 import getChapter from '@/util/getChapter'
 import getAnimation from '@/util/getAnimation'
 import { SvgMorph } from '@/components/Animations'
-import VueMarkdown from 'vue-markdown'
 import store from '@/store.js'
+import Fade from '@/components/Fade'
 import MdText from '@/components/MdText'
 
 export default {
@@ -108,9 +112,9 @@ export default {
         },
     },
     components: {
-        VueMarkdown,
         SvgMorph,
-        MdText
+        MdText,
+        Fade
     },
     destroyed() {
         this.$store.dispatch('clearSubchapters')

@@ -5,7 +5,6 @@ import store from './store'
 import getThesis from '@/util/getThesis'
 import getBib from '@/util/getBib'
 import {parseBibFile} from "bibtex"
-import { parse } from 'ipaddr.js';
 
 Vue.use(Router)
 
@@ -37,6 +36,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
+  store.dispatch('clearRefCoordinates')
   if (store.state.thesis && store.state.refs) {
     next()
   } else {
@@ -47,7 +47,6 @@ router.beforeEach((to, from, next) => {
       getBib().then((bib) => {
         let refs = {}
         let parsed = parseBibFile(bib.data)
-        console.log(parsed)
         Object.keys(parsed.entries$).forEach((entryName, i) => {
           let toPush = {
             index: i+1,

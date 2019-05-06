@@ -4,13 +4,15 @@
     padding-top: 32px
     padding-bottom: 32px
     column-gap: 64px
-    column-count: 3
-    max-width: calc(100vw - 400px)
+    column-count: 2
     box-sizing: border-box
-    padding-right: 128px
     overflow-wrap: break-word
+    margin: 0 16px
+    word-break: break-word
+    @media (max-width: 1193px)
+        column-count: 1
     .source
-        display: flex
+        display: flex 
         flex-direction: column
         margin-bottom: 24px
         .headline

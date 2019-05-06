@@ -1,19 +1,17 @@
 @import '@/styles/mixins/typography.sass'
     
 .Nav
-    position: relative
-    width: 300px
     box-sizing: border-box
-    max-height: 500px
-
+    width: inherit
+    height: 100vh
+    background-color: white
     .inner
-        padding: 32px 64px 32px 32px
-        position: fixed
         box-sizing: border-box
         display: flex
-        flex-direction: column
+        position: fixed
         width: inherit
-
+        padding-right: 64px
+        flex-direction: column
         .intro
             margin-bottom: 16px
             display: flex
@@ -23,14 +21,6 @@
                 margin-bottom: 32px
                 text-decoration: none
                 color: #000000
-            .border
-                height: 4px
-                width: 100%
-                opacity: 0
-                background-color: rgba(0,0,0,.3)
-                width: calc(100% - 32px)
-                border-radius: 2px
-        
         .chapters
             display: flex
             flex-direction: column

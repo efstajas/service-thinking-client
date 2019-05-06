@@ -34,6 +34,10 @@ export default new Vuex.Store({
     },
     clearRefCoordinates(state) {
       state.refCoordinates = []
+    },
+    deleteRefCoordinate(state, data) {
+      console.log('clearing ', data)
+      state.refCoordinates[state.refCoordinates.findIndex(o => o.tag === data)] = null
     }
   },
   actions: {
@@ -62,6 +66,8 @@ export default new Vuex.Store({
     },
     registerRefCoordinates(context, data) {
       context.commit('addRefCoordinates', {
+        index: data.index,
+        tag: data.tag,
         y1: data.y1,
         y2: data.y2,
         height: data.height
@@ -69,6 +75,9 @@ export default new Vuex.Store({
     },
     clearRefCoordinates(context) {
       context.commit('clearRefCoordinates')
+    },
+    removeRefCoordinate(context,data) {
+      context.commit('deleteRefCoordinate', data)
     }
   }
 })

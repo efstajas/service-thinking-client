@@ -1,10 +1,17 @@
 <template>
-  <div id="app" :class="{swipedOut: swipedOut}">
-    <Nav @clickLink="swipedOut = false" class="nav"/>
-    <div class="view">
-      <Swap >
-        <router-view :key="$route.params.slug" />
-      </Swap>
+  <div id="app">
+    <div class="wrapper">
+      <Nav :class="{swipedOut: swipedOut}" @clickLink="swipedOut = false" class="nav"/>
+      <div  @click="swipedOut = false" class="view">
+        <Swap >
+          <router-view :key="$route.params.slug" />
+        </Swap>
+      </div>
+      <div id="annotations" class="annotations">
+      </div>
+    </div>
+    <div @click="swipeOut" class="menuButton">
+      <img src="./hamburger.svg">
     </div>
   </div>
 </template>
@@ -12,8 +19,6 @@
 <script>
 import Nav from '@/components/Nav'
 import Swap from '@/components/Swap'
-
-import getThesis from '@/util/getThesis'
 
 export default {
   components: {
@@ -25,6 +30,11 @@ export default {
       swipedOut: false
     }
   },
+  methods: {
+    swipeOut() {
+      this.swipedOut = !this.swipedOut
+    }
+  }
 }
 </script>
 

@@ -1,15 +1,16 @@
 @import '@/styles/mixins/typography.sass'
     
 .Chapter
-    padding: 32px 48px
+    padding: 32px 0
     display: flex
-
+    margin: 0 16px
     .content
-        max-width: 700px
-        @media (max-width: 768px)
-            width: calc(100vw - 48px)
+        width: 100%
         .info
             @include typography("head") 
+            @media (min-width: 1193px)
+                min-height: 674px
+            width: 100%
             background-color: black
             color: white
             margin-left: -16px
@@ -25,7 +26,8 @@
                 margin-bottom: 64px
 
             .title
-                margin-bottom: 128px
+                display: block
+                margin: 32px 0
 
         .next
             margin-top: 64px
@@ -46,9 +48,3 @@
 
             &:hover
                 opacity: 1
-
-
-    .annotations
-        max-width: 300px
-        flex-grow: 1
-        margin-left: 64px

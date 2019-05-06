@@ -1,6 +1,6 @@
 <template>
-    <div v-if="ref" class="Citation">
-        <div @click="handleClick" :style="{transform: `translate(${offset}px, ${yOffset}px)`}" ref="info" class="citationInfo">
+    <div ref="info"  class="Citation">
+        <div @click="handleClick" :style="{transform: `translate(${offset}px, ${yOffset}px)`}" class="citationInfo">
             <span class="index">{{ ref.index }}</span><span class="title">{{ ref.meta.title }}</span>
         </div>
         <div @click="handleClick" v-if="$store.state.referenceOpen === tag" :style="{transform: `translate(${offset}px, ${yOffset}px)`}" ref="moreInfo" class="moreInfo">
@@ -20,17 +20,19 @@
 </template>
 
 <script>
+import { setTimeout } from 'timers';
 export default {
     name: 'Citation',
     props: {
         tag: {
             type: String,
             required: true
-        }
+        },
+        pageIndex: Number
     },
     data() {
         return {
-            position: 1250,
+            position: 1160,
             myPosition: null,
             offset: 0,
             yOffset: 0
@@ -42,15 +44,23 @@ export default {
         },
         ref() {
             return this.$store.state.refs[this.sanitizedTag]
+        },
+        refCoordinates() {
+            return this.$store.state.refCoordinates
         }
     },
     mounted() {
+        console.log(this.pageIndex)
         this.$nextTick(() => {
+            this.calculateOffset()
             this.calculateMetrics()
-            window.addEventListener('resize', () => {
-                this.calculateMetrics()
-            });
+            setTimeout(() => {
+                this.calculateOffset()
+            }, 100)
         })
+        window.addEventListener('resize', () => {
+            this.calculateOffset()
+        });
     },
     methods: {
         handleClick() {
@@ -64,16 +74,21 @@ export default {
                 })
             }
         },
+        calculateOffset() {
+            this.myPosition = 0
+            this.myPosition = this.$refs.info.getBoundingClientRect().left
+            this.offset = document.getElementById('annotations').getBoundingClientRect().left - this.myPosition
+        },
         calculateMetrics() {
-            console.log("calculate metrics")
             if (this.$refs.info) {
                 let y1 = this.$refs.info.getBoundingClientRect().top
+                let h1 = this.$refs.info.getBoundingClientRect().height
                 let y2 = this.$refs.info.getBoundingClientRect().bottom
                 let yOffset = 0
 
                 this.$store.state.refCoordinates.forEach((value) => {
-                    if (value.y1 === y1) {          
-                        yOffset = yOffset + value.height
+                    if (this.collision(y1, h1, value.y1, value.height)) {
+                        yOffset = yOffset + ((value.y1 + value.height) - y1)
                         y1 = this.$refs.info.getBoundingClientRect().top,
                         y2 = this.$refs.info.getBoundingClientRect().bottom
                     }
@@ -82,16 +97,28 @@ export default {
                 this.yOffset = yOffset
 
                 this.$store.dispatch('registerRefCoordinates', {
+                    index: this.pageIndex,
+                    tag: this.sanitizedTag,
                     y1: y1,
                     y2: y2,
-                    height: this.$refs.info.getBoundingClientRect().height
+                    height: h1
                 })
-
-                this.myPosition = this.$refs.info.getBoundingClientRect().left
-                this.offset = this.position - this.myPosition
             }
+        },
+        collision(y1, h1, y2, h2) {
+            var b1 = y1 + h1;
+            var b2 = y2 + h2;
+
+            if (b1 < y2 || y1 > b2) return false;
+            return true;
         }
     },
+    /*watch: {
+        'refCoordinates': function(now) {
+            console.log("yip")
+            if (now.some(el => el.index === this.pageIndex - 1)) console.log("yup")
+        }
+    }*/
 }
 </script>
 

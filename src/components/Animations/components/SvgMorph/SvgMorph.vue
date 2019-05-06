@@ -21,7 +21,7 @@ export default {
             default: '#FFFFFF'
         },
         width: {
-            type: Number,
+            type: String,
             default: 300
         },
         viewBoxWidth: {

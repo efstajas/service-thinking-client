@@ -14,7 +14,7 @@
         {
             "name" : "Defining and modelling services",
             "info": {
-                "title": "Defining and modelling services",
+                "title": "Defining and modeling services",
                 "subtitle": "A unified model for describing services",
                 "animation": {
                     "path": "/thesis/animations/2.json"
@@ -51,7 +51,7 @@
             "name" : "Service Landscapes",
             "info": {
                 "title": "Service Landscapes",
-                "subtitle": "Expressing strategy through service landscaping",
+                "subtitle": "Structuring adjacent services in shared space",
                 "animation": {
                     "path": "/thesis/animations/5.json"
                 }

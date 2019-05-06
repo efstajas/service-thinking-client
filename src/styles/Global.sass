@@ -3,16 +3,12 @@
 
 h1
     @include typography(head)
-
 h2 
     @include typography(sub)
-
 h3
     @include typography(small)
-
 h4
     @include typography(smallcaps)
-
 p
     @include typography(normal)
 
@@ -24,24 +20,50 @@ body
     overflow-x: hidden
 
 #app
-    .nav
-        flex-shrink: 0
-        width: 400px
-
-    .view
-        width: 100%
-
-    @media (min-width: 768px)
+    .wrapper
         display: flex
-        margin: 0
-        width: 100vw
-
-    @media (max-width: 767px)
-        display: flex
-        margin: 0
-        width: calc(100vw + 256px)
-        transform: translateX(-424px)
+        justify-content: space-between
+        .nav
+            width: 300px
+            min-width: 300px
+            flex-basis: 0
+            padding: 32px
+            z-index: 50000
+        .view
+            max-width: 700px
+            flex-grow: 3
+            flex-basis: 0
+            margin: 0 16px
+        .annotations
+            flex-grow: 1
+            width: 300px
+            padding: 32px
+            flex-basis: 0
+        @media (min-width: 1194px)
+            width: 100vw
+        @media (max-width: 1193px)
+            transition: transform .3s
+            .nav
+                position: fixed
+                transform: translateX(-300px)
+                transition: transform .3s
+                &.swipedOut
+                    transform: translateX(0)
+            .annotations
+                display: none
+            .view
+                margin: 0 auto
+    .menuButton
+        position: fixed
+        z-index: 5000
+        top: 16px
+        left: 8px
         transition: transform .3s
-
+        @media (min-width: 1194px)
+            display: none
         &.swipedOut
-            transform: translateX(0)
+            transform: translateX(424px)
+        img
+            height: 48px
+            width: 48px
+        
